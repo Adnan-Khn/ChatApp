@@ -13,6 +13,13 @@ app.use(express.json());
 app.use(clerkMiddleware())
 app.use(cors({origin:config.FRONTEND_URL,credentials:true}))
 
+app.get("/health",(req,res)=>{
+    res.status(200).json({
+        message : "Backend running",
+        running:true
+        
+    })
+})
 app.use("/api", (req, res) => {
   res.status(404).json({
     message: "API endpoint not found"
