@@ -1,0 +1,32 @@
+# Dependencies
+**/node_modules
+
+# Build outputs
+**/dist
+**/build
+**/coverage
+
+# Environment variables
+**/.env
+**/.env.*
+
+# Allow environment variable templates
+!**/.env.example
+
+# Git
+**/.git
+**/.gitignore
+
+# Logs
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+**/*.log
+
+# OS-generated files
+**/.DS_Store
+**/Thumbs.db
+
+# IDE configuration
+**/.vscode
+**/.idea
