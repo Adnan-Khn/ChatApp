@@ -5,6 +5,7 @@ import { config } from "../config/config.js";
 import fs from "fs";
 import path from "path"
 import clerkWebhook from "../webhooks/clerk.webhook.js"
+import AuthRoutes from "../routes/auth.route.js"
 
 const app = express();
 
@@ -22,11 +23,7 @@ app.get("/health",(req,res)=>{
         
     })
 })
-app.use("/api", (req, res) => {
-  res.status(404).json({
-    message: "API endpoint not found"
-  });
-});
+app.use("/api/auth",AuthRoutes)
 
 if (fs.existsSync(publicDir)) {
   app.use(express.static(publicDir));
