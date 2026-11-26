@@ -4,11 +4,13 @@ import { clerkMiddleware } from '@clerk/express'
 import { config } from "../config/config.js";
 import fs from "fs";
 import path from "path"
+import clerkWebhook from "../webhooks/clerk.webhook.js"
 
 const app = express();
 
 const publicDir = path.join(process.cwd(),"public")
 
+app.use("/api/webhooks/clerk",express.raw({type:"application/json"}),clerkWebhook)
 app.use(express.json());
 app.use(clerkMiddleware())
 app.use(cors({origin:config.FRONTEND_URL,credentials:true}))
